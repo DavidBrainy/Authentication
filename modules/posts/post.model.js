@@ -18,6 +18,20 @@ const postSchema = new Schema({
         default: false,
     },
 
-});
+    author:{
+        type: Schema.Types.ObjectId,
+        required:true,
+    },
+    likedBy:[
+        {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+    }
+ ],
+},
+{
+    timestamps: true,
+}
+);
 
-module.exports = model("post", postSchema);
+module.exports = model("Post", postSchema);
